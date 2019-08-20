@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import Color from '../../../styles/color';
 
 const S = StyleSheet.create({
     container: {
         flex: 1,
         width: "100%",
-        backgroundColor: '#fff',
+        backgroundColor: Color.lightGrey,
         alignItems: 'center',
     },
 });

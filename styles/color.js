@@ -2,8 +2,8 @@ export default {
     white: '#ffffff',
     black: '#000000',
   
-    lightBlue: '#00a8ff',
-    blue: '#0652DD',
+    lightBlue: '#00b2e1',
+    blue: '#007bb8',
     darkBlue: '#273c75',
   
     lightGrey: '#ecf0f1',
@@ -14,16 +14,16 @@ export default {
     orange: '#ffa502',
     darkOrange: '#e84118',
   
-    lightGreen: '#badc58',
-    green: '#4cd137', //#6ab04c
+    lightGreen: '#78cc79',
+    green: '#50a753',
     darkGreen: '#009432',
   
     lightYellow: '#ffdd59',
     yellow: '#fbc531',
     darkYellow: '#e1b12c',
   
-    lightRed: '#e74c3c',
-    red: '#EA2027',
+    lightRed: '#fd5e52',
+    red: '#f23d31',
     darkRed: '#c23616',
   
     lightPurple: '#9b59b6',

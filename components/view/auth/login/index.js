@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Button, Text} from 'react-native';
+import {View, Button, Text, Image} from 'react-native';
 import {SecureStore} from 'expo';
 import S from './style';
 import Color from '../../../../styles/color';
@@ -8,9 +8,8 @@ import Input from '../../../components/input';
 
 export default class LoginScreen extends React.Component {
   state = {
-    email: "test@test.fr",
-    password: "test",
-    error: "",
+    phone: "642129037",
+    phoneError: " ",
   }
 
   handleButton = async() => {
@@ -22,40 +21,33 @@ export default class LoginScreen extends React.Component {
   }
 
   render() {
-    const {email, password, error} = this.state;
+    const {phone, phoneError} = this.state;
 
     return(
       <Container>
         <View style={S.spaceTop}/>
 
+        <Image 
+          source={require('../../../../assets/icon_pin.png')}
+          style={S.image}
+        />
+
         <View style={S.container}>
           <Input 
             containerStyle={{width: "80%", marginBottom: 10}}
-            placeholder="Email"
-            onChangeText={(text) => this.handleChange(text, "email")}
-            keyboardType="email-address"
-            value={email}
-          />
-
-          <Input 
-            containerStyle={{width: "80%", marginBottom: 20}}
-            placeholder="Password"
-            secureTextEntry={true}
-            onChangeText={(text) => this.handleChange(text, "password")}
-            value={password}
+            placeholder="Phone Number"
+            label="Phone number"
+            onChangeText={(text) => this.handleChange(text, "phone")}
+            keyboardType="phone-pad"
+            value={phone}
+            error={phoneError}
           />
 
           <Button 
-            title="sign in"
+            title="Let's Go"
             onPress={this.handleButton}
-            color={Color.lightBlue}
+            color={Color.darkOrange}
           />
-
-          {
-            error 
-              ? (<Text style={S.textError}>{error}</Text>) 
-              : (null)
-          }
         </View>
         
         <View style={S.spaceBottom}/>

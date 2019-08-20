@@ -3,11 +3,10 @@ import Color from '../../../../styles/color';
 
 export default StyleSheet.create({
   container: {
-      flex: 5,
+      flex: 4,
       width: "100%",
-      backgroundColor: '#fff',
       alignItems: 'center',
-      justifyContent: 'center',
+      marginTop: 50,
   },
 
   spaceTop: {
@@ -15,10 +14,16 @@ export default StyleSheet.create({
   },
 
   spaceBottom: {
-    flex: 4,
+    flex: 1,
   },
 
   textError: {
     color: Color.red,
+  },
+
+  image: {
+    flex: 3,
+    width: 120,
+    height: 185,
   },
 });

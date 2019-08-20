@@ -1,38 +1,69 @@
 import React from 'react';
-import { StyleSheet, View, TextInput } from 'react-native';
+import { StyleSheet, View, TextInput, Text } from 'react-native';
 import Color from '../../../styles/color';
 
 class Input extends React.Component {
-    render() {
-        const {
-          secureTextEntry, placeholder, editable, maxLength, onChangeText, label,
-          containerStyle, keyboardType, value, inputStyle,
-        } = this.props;
+  getLabel = () => {
+    return (
+      <Text>{this.props.label}</Text>
+    );
+  }
 
-        const S = StyleSheet.create({
-          container: {
-              width: 200,
-              height: 40,
-              backgroundColor: "#fff",
-              borderColor: Color.darkGrey,
-              borderWidth: 1,
-              borderRadius: 3,
-              justifyContent: 'center',
-              // alignItems: 'center',
-              ...containerStyle,
-          },
+  getError = () => {
+    const S = StyleSheet.create({
+      text: {
+        color: Color.red,
+      },
+    });
 
-          input: {
-            fontSize: 20,
-            marginLeft: 15,
-            marginRight: 15,
-            color: Color.darkGrey,
-            ...inputStyle,
-          },
-        });
+    return (
+      <Text style={S.text}>{this.props.error}</Text>
+    );
+  }
 
-        return (
-          <View style={S.container}>
+  render() {
+      const {
+        secureTextEntry, placeholder, editable, maxLength, onChangeText, label,
+        containerStyle, keyboardType, value, inputStyle, error,
+      } = this.props;
+
+      const S = StyleSheet.create({
+        container: {
+            width: 200,
+            height: 50,
+            justifyContent: 'center',
+            ...containerStyle,
+        },
+
+        input: {
+          width: '100%',
+          fontSize: 20,
+          color: Color.darkGrey,
+          ...inputStyle,
+        },
+
+        inputContainer: {
+          marginTop: 5,
+          marginBottom: 5,
+          paddingLeft: 15,
+          paddingRight: 15,
+          paddingBottom: 5,
+          borderColor: Color.darkOrange,
+          borderBottomWidth: 3,
+          flexDirection: 'row',
+          width: '100%',
+        },
+
+        text: {
+          fontSize: 20,
+        },
+      });
+
+      return (
+        <View style={S.container}>
+          {label && this.getLabel()}
+          <View style={S.inputContainer}>
+            <Text style={S.text}>+33 </Text>
             <TextInput 
               style={S.input}
               placeholder={placeholder}
@@ -44,7 +75,9 @@ class Input extends React.Component {
               value={value}
             />
           </View>
-        );
+          {error && this.getError()}
+        </View>
+      );
     }
 }
 
