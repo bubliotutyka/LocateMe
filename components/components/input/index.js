@@ -75,7 +75,7 @@ class Input extends React.Component {
               value={value}
             />
           </View>
-          {error && this.getError()}
+          {error !== "" && this.getError()}
         </View>
       );
     }
