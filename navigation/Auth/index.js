@@ -6,6 +6,8 @@ import {
 } from 'react-navigation';
 import CustomIcons from 'react-native-vector-icons/FontAwesome';
 import LoadingScreen from '../../components/LoadingScreen';
+import LoginView from '../../components/view/auth/login';
+import RegisterView from '../../components/view/auth/register';
 import Theme from '../../styles/theme';
 
 const theme = Theme('light');
@@ -13,7 +15,7 @@ const theme = Theme('light');
 const Login = createAppContainer(
     createStackNavigator({
         Login: {
-            screen: LoadingScreen,
+            screen: LoginView,
             navigationOptions: {
                 title: 'Login',
             }
@@ -24,7 +26,7 @@ const Login = createAppContainer(
 const Register = createAppContainer(
     createStackNavigator({
         Register: {
-            screen: LoadingScreen,
+            screen: RegisterView,
             navigationOptions: {
                 title: 'Register',
             }

@@ -1,15 +1,23 @@
 import React from 'react';
 import { 
     ActivityIndicator,
-    AsyncStorage,
     StyleSheet,
     View,
 } from 'react-native';
 
+const S = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
+
 export default class LoadingScreen extends React.Component {
     render() {
         return(
-            <View style={styles.container}>
+            <View style={S.container}>
                 <ActivityIndicator 
                     size="large"
                     color="#00a8ff"
@@ -18,12 +26,3 @@ export default class LoadingScreen extends React.Component {
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});

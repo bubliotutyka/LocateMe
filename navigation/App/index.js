@@ -22,11 +22,11 @@ export default createAppContainer(
                 const { routeName } = navigation.state;
                 let iconName;
                 if (routeName === 'Button1') {
-                    iconName = 'align-right';
+                    iconName = 'image';
                 } else if (routeName === 'Button2') {
-                    iconName = 'align-justify';
+                    iconName = 'camera-retro';
                 } else if (routeName === 'Button3') {
-                    iconName = `align-left`;
+                    iconName = `cogs`;
                 }
 
                 return <CustomIcons name={iconName} size={25} color={tintColor} />;

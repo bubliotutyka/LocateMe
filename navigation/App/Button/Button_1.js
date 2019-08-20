@@ -2,15 +2,15 @@ import {
     createStackNavigator,
     createAppContainer,
 } from 'react-navigation';
-import LoadingScreen from '../../../components/LoadingScreen';
+import SnapsBoxScreen from '../../../components/view/app/snapsBox';
 
 export default createAppContainer(
     createStackNavigator(
         {
             Example: {
-                screen: LoadingScreen,
+                screen: SnapsBoxScreen,
                 navigationOptions: {
-                    title: 'Page 1',
+                    title: 'Snaps Box',
                 }
             },
         }

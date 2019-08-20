@@ -2,15 +2,15 @@ import {
     createStackNavigator,
     createAppContainer,
 } from 'react-navigation';
-import LoadingScreen from '../../../components/LoadingScreen';
+import SettingsScreen from '../../../components/view/app/settings';
 
 export default createAppContainer(
     createStackNavigator(
         {
             Example: {
-                screen: LoadingScreen,
+                screen: SettingsScreen,
                 navigationOptions: {
-                    title: 'Page 3',
+                    title: 'Settings',
                 }
             },
         }

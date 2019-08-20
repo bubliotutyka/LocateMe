@@ -10,7 +10,7 @@ export default createAppContainer(
             Example: {
                 screen: LoadingScreen,
                 navigationOptions: {
-                    title: 'Page 2',
+                    title: 'New Snap',
                 }
             },
         }

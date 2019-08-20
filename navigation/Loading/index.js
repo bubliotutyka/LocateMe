@@ -1,17 +1,18 @@
 import React from 'react';
-import { AsyncStorage } from 'react-native';
+import {SecureStore} from 'expo';
 import LoadingScreen from '../../components/LoadingScreen';
 
 export default class Loading extends React.Component {
     constructor(props) {
         super(props);
-        this._isLogin();
+        this.isLogin();
     }
 
-    _isLogin = async() => {
-        // const userToken = await AsyncStorage.getItem('userToken');
-        const userToken = false;
-        this.props.navigation.navigate(userToken ? 'App' : 'Auth');
+    isLogin = async() => {
+        // const token = await SecureStore.getItemAsync('eToken');
+        // const isLogin = await UserService.verify(token);
+        const debugLog = false;
+        this.props.navigation.navigate(debugLog ? 'App' : 'Auth');
     }
 
     render() {
