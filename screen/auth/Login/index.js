@@ -10,6 +10,7 @@ import {SecureStore} from 'expo';
 // Local Import
 import S from './style';
 import GeolocationService from '../../../service/GeolocationService';
+import Loading from '../../../components/Loading';
 import Container from '../../../components/Container';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
@@ -18,6 +19,7 @@ class LoginScreen extends React.Component {
   state = {
     phone: "642129037",
     phoneError: "",
+    isLoading: false,
   }
 
   handleButton = async() => {
@@ -26,37 +28,35 @@ class LoginScreen extends React.Component {
     let {phone} = this.state;
 
     if (phone.match(REGEX9) || phone.match(REGEX10)) {
-      if (phone.match(REGEX10))
-        phone = phone.substring(1);
+      this.setState({isLoading: true});
 
-      navigator.geolocation.getCurrentPosition(async (pos) => {
-        const {latitude, longitude} = pos.coords;
+      if (phone.match(REGEX10)) {
+        phone = phone.substring(1);
+      }
+
+      const pos = await GeolocationService.getPos();
+
+      if (pos) {
         const user = await GeolocationService.login({
           phoneNumber: `+33${phone}`,
-          lat: latitude,
-          lng: longitude,
+          lat: pos.lat,
+          lng: pos.lng,
         });
 
-        console.log('====================================');
-        console.log(user);
-        console.log('====================================');
-
-        await SecureStore.setItemAsync('eToken', user._id);
-        this.props.navigation.navigate("App");
-      }, (error) => {
-        console.log(error);
-      }, {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      });
+        if (user._id) {
+          await SecureStore.setItemAsync('eToken', user._id);
+          this.props.navigation.navigate("App");
+        }
+      }
     } else if (!authorization) {
       this.setState({
         phoneError: "Geolocation needed",
+        isLoading: false,
       });
     } else {
       this.setState({
         phoneError: "Please enter valid number",
+        isLoading: false,
       });
     }
   }
@@ -66,7 +66,13 @@ class LoginScreen extends React.Component {
   }
 
   render() {
-    const {phone, phoneError} = this.state;
+    const {phone, phoneError, isLoading} = this.state;
+
+    if (isLoading) {
+      return (
+        <Loading />
+      )
+    }
 
     return(
       <Container>
