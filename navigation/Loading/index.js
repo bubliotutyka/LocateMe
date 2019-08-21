@@ -1,8 +1,10 @@
 import React from 'react';
 // import {SecureStore} from 'expo';
-import LoadingScreen from '../../components/LoadingScreen';
 
-export default class Loading extends React.Component {
+// Local Import
+import LoadingScreen from '../../components/Loading';
+
+class Loading extends React.Component {
     constructor(props) {
         super(props);
         this.isLogin();
@@ -21,3 +23,6 @@ export default class Loading extends React.Component {
         )
     }
 }
+
+// Export
+export default Loading;

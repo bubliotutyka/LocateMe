@@ -2,9 +2,11 @@ import {
     createStackNavigator,
     createAppContainer,
 } from 'react-navigation';
-import SettingsScreen from '../../../components/view/app/settings';
 
-export default createAppContainer(
+// Local Import
+import SettingsScreen from '../../../screen/app/Settings';
+
+const Button = createAppContainer(
     createStackNavigator(
         {
             Example: {
@@ -16,3 +18,6 @@ export default createAppContainer(
         }
     )
 );
+
+// Export
+export default Button;

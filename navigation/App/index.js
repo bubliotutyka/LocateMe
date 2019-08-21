@@ -5,11 +5,12 @@ import {
 } from 'react-navigation';
 import CustomIcons from 'react-native-vector-icons/FontAwesome';
 
+// Local Import
 import Button1 from './Button/Button_1';
 import Button2 from './Button/Button_2';
 import Button3 from './Button/Button_3';
 
-export default createAppContainer(
+const AppNavigator = createAppContainer(
     createBottomTabNavigator(
         {
             Button1,
@@ -41,3 +42,6 @@ export default createAppContainer(
         }
     )
 );
+
+// Export
+export default AppNavigator;

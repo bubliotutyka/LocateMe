@@ -5,14 +5,14 @@ import {View, Button, Image} from 'react-native';
 
 // Local Import
 import S from './style';
-import Color from '../../../../styles/color';
+import Color from '../../../styles/Color';
 import Container from '../../../components/Container';
-import Input from '../../../components/input';
+import Input from '../../../components/Input';
 
-export default class LoginScreen extends React.Component {
+class LoginScreen extends React.Component {
   state = {
     phone: "642129037",
-    phoneError: "",
+    phoneError: "asdf",
   }
 
   handleButton = async() => {
@@ -51,7 +51,7 @@ export default class LoginScreen extends React.Component {
         <View style={S.spaceTop}/>
 
         <Image 
-          source={require('../../../../assets/icon_pin.png')}
+          source={require('../../../assets/icon_pin.png')}
           style={S.image}
         />
 
@@ -78,3 +78,6 @@ export default class LoginScreen extends React.Component {
     )
   }
 }
+
+// Export
+export default LoginScreen;

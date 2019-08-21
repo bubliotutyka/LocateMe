@@ -1,7 +1,9 @@
 import {StyleSheet} from 'react-native';
-import Color from '../../../../styles/color';
 
-export default StyleSheet.create({
+// Local Import
+import Color from '../../../styles/Color';
+
+const styles = StyleSheet.create({
   container: {
       flex: 1,
       width: "100%",
@@ -14,3 +16,6 @@ export default StyleSheet.create({
     width: "100%",
   },
 });
+
+// Export
+export default styles;

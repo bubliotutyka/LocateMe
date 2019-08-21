@@ -3,7 +3,9 @@ import {
     createAppContainer,
     createSwitchNavigator,
 } from 'react-navigation';
-import LoginView from '../../components/view/auth/login';
+
+// Local Import
+import LoginView from '../../screen/auth/Login';
 
 const AuthNavigator = createAppContainer(
     createSwitchNavigator(
@@ -13,4 +15,5 @@ const AuthNavigator = createAppContainer(
     )
 );
 
+// Export
 export default AuthNavigator;

@@ -2,11 +2,13 @@ import {
     createAppContainer,
     createSwitchNavigator,
 } from 'react-navigation';
+
+// Local Import
 import LoadingScreen from './Loading';
 import AuthNavigator from './Auth';
 import AppNavigator from './App';
 
-export default createAppContainer(
+const navigator = createAppContainer(
     createSwitchNavigator(
         {
             AuthLoading: LoadingScreen,
@@ -18,3 +20,5 @@ export default createAppContainer(
         }
     )
 );
+
+export default navigator;

@@ -14,7 +14,7 @@ const S = StyleSheet.create({
     },
 });
 
-export default class LoadingScreen extends React.Component {
+class Loading extends React.Component {
     render() {
         return(
             <View style={S.container}>
@@ -26,3 +26,6 @@ export default class LoadingScreen extends React.Component {
         )
     }
 }
+
+// Export
+export default Loading;

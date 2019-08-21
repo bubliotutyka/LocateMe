@@ -1,4 +1,5 @@
-import Color from './color';
+// Import Local
+import Color from './Color';
 
 const lightTheme = {
     active: Color.lightBlue,
@@ -12,6 +13,7 @@ const darkTheme = {
 
 }
 
+// Export
 export default (theme) => {
     if (theme === 'dark') {
         return darkTheme;

@@ -1,10 +1,12 @@
 import React from 'react';
 import {View, Button} from 'react-native';
 // import {SecureStore} from 'expo';
-import Color from '../../../../styles/color';
+
+// Local Import
+import Color from '../../../styles/Color';
 import S from './style';
 
-export default class LogoutScreen extends React.Component {
+class SettingScreen extends React.Component {
   handleLogout = async () => {
     // await SecureStore.setItemAsync('eToken', 'null');
     // this.props.navigation.navigate("AuthLoading");
@@ -23,3 +25,6 @@ export default class LogoutScreen extends React.Component {
     )
   }
 }
+
+// Export
+export default SettingScreen;

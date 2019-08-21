@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import Color from '../../../styles/color';
+
+// Local Import
+import Color from '../../styles/Color';
 
 const S = StyleSheet.create({
     container: {
@@ -11,7 +13,7 @@ const S = StyleSheet.create({
     },
 });
 
-export default class Container extends React.Component {
+class Container extends React.Component {
     render() {
         return (
             <View style={S.container}>
@@ -20,3 +22,6 @@ export default class Container extends React.Component {
         );
     }
 }
+
+// Export
+export default Container;

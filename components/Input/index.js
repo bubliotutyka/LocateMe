@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, TextInput, Text } from 'react-native';
-import Color from '../../../styles/color';
+
+// Local Import
+import Color from '../../styles/Color';
 
 class Input extends React.Component {
   getLabel = () => {
@@ -81,4 +83,5 @@ class Input extends React.Component {
     }
 }
 
+// Export
 export default Input;

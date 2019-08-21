@@ -1,11 +1,12 @@
 import React from 'react';
 import {View, ScrollView} from 'react-native';
 // import {SecureStore} from 'expo';
-import LoadingScreen from '../../../LoadingScreen';
-import S from './style';
-import SnapCard from './snapCard';
 
-export default class SnapBoxScreen extends React.Component {
+// Local Import
+import S from './style';
+import LoadingScreen from '../../../components/Loading';
+
+class MapScreen extends React.Component {
   state = {
     snaps: [],
     isReady: false,
@@ -34,17 +35,12 @@ export default class SnapBoxScreen extends React.Component {
     return(
       <View style={S.container}>
         <ScrollView style={S.scrollView}>
-          {
-            snaps.map((snap) => (
-              <SnapCard 
-                data={snap} 
-                key={snap._id} 
-                onPress={() => this.handleSnapPress(snap._id)}
-              />
-            ))
-          }
+          
         </ScrollView>
       </View>
     )
   }
 }
+
+// Export
+export default MapScreen;
