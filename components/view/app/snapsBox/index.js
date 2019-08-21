@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, ScrollView} from 'react-native';
-import {SecureStore} from 'expo';
+// import {SecureStore} from 'expo';
 import LoadingScreen from '../../../LoadingScreen';
 import S from './style';
 import SnapCard from './snapCard';

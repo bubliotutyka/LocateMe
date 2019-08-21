@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Button, Image} from 'react-native';
-import {SecureStore} from 'expo';
+// import {SecureStore} from 'expo';
 // import Geolocation from 'react-native-geolocation-service';
 
 // Local Import

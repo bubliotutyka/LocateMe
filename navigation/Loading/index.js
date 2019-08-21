@@ -1,5 +1,5 @@
 import React from 'react';
-import {SecureStore} from 'expo';
+// import {SecureStore} from 'expo';
 import LoadingScreen from '../../components/LoadingScreen';
 
 export default class Loading extends React.Component {
