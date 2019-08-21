@@ -5,10 +5,13 @@ import {
     View,
 } from 'react-native';
 
+// Local Import
+import Color from '../../styles/Color';
+
 const S = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: Color.lightGrey,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -20,7 +23,7 @@ class Loading extends React.Component {
             <View style={S.container}>
                 <ActivityIndicator 
                     size="large"
-                    color="#00a8ff"
+                    color={Color.darkOrange}
                 />
             </View>
         )

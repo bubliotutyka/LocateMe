@@ -6,6 +6,7 @@ import {
 import CustomIcons from 'react-native-vector-icons/FontAwesome';
 
 // Local Import
+import Color from '../../styles/Color';
 import Button1 from './Button/Button_1';
 import Button2 from './Button/Button_2';
 import Button3 from './Button/Button_3';
@@ -34,10 +35,14 @@ const AppNavigator = createAppContainer(
             },
             }),
             tabBarOptions: {
-            activeTintColor: '#00a8ff',
-            inactiveTintColor: '#718093',
-            showLabel: false,
-            showIcon: true,
+                activeTintColor: Color.darkOrange,
+                inactiveTintColor: Color.darkGrey,
+                showLabel: false,
+                showIcon: true,
+                style: {
+                    backgroundColor: Color.lightGrey,
+                    ...Color.shadow,
+                },
             },
         }
     )

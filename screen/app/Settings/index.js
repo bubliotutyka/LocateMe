@@ -1,26 +1,36 @@
 import React from 'react';
-import {View, Button} from 'react-native';
-// import {SecureStore} from 'expo';
+import {
+  View
+} from 'react-native';
+import {SecureStore} from 'expo';
 
 // Local Import
-import Color from '../../../styles/Color';
 import S from './style';
+import GeolocationService from '../../../service/GeolocationService';
+import Button from '../../../components/Button';
 
 class SettingScreen extends React.Component {
   handleLogout = async () => {
-    // await SecureStore.setItemAsync('eToken', 'null');
-    // this.props.navigation.navigate("AuthLoading");
+    const id = await SecureStore.getItemAsync('eToken');
+    const logout = await GeolocationService.logout(id);
+
+    if (logout._id) {
+      await SecureStore.setItemAsync('eToken', '');
+      this.props.navigation.navigate("AuthLoading");
+    }
   }
 
   render() {
     return(
-      <View>
-        <Button 
-          title="Logout"
-          onPress={this.handleLogout}
-          color={Color.lightBlue}
-          style={S.logoutBtn}
-        />
+      <View style={S.container}>
+
+        <View style={S.logoutBtn}>
+          <Button
+            label="Logout"
+            onPress={this.handleLogout}
+          />
+        </View>
+
       </View>
     )
   }

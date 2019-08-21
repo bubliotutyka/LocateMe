@@ -4,6 +4,7 @@ import {
 } from 'react-navigation';
 
 // Local Import
+import Style from './style';
 import SettingsScreen from '../../../screen/app/Settings';
 
 const Button = createAppContainer(
@@ -13,6 +14,7 @@ const Button = createAppContainer(
                 screen: SettingsScreen,
                 navigationOptions: {
                     title: 'Settings',
+                    ...Style,
                 }
             },
         }

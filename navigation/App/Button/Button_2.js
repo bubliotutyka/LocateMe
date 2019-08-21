@@ -4,6 +4,7 @@ import {
 } from 'react-navigation';
 
 // Local Import
+import Style from './style';
 import LoadingScreen from '../../../components/Loading';
 
 const Button =  createAppContainer(
@@ -13,6 +14,7 @@ const Button =  createAppContainer(
                 screen: LoadingScreen,
                 navigationOptions: {
                     title: 'Example',
+                    ...Style,
                 }
             },
         }

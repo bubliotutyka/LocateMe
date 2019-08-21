@@ -11,6 +11,17 @@ const styles = StyleSheet.create({
       marginTop: 50,
   },
 
+  scrollContainer: {
+    flex: 1,
+    width: "100%",
+    flexDirection: "column",
+  },
+
+  scrollContent: {
+    alignItems: 'center',
+    paddingVertical: 100,
+  },
+
   spaceTop: {
     flex: 1,
   },

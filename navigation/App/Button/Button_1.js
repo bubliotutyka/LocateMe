@@ -4,6 +4,7 @@ import {
 } from 'react-navigation';
 
 // Local Import
+import Style from './style';
 import SnapsBoxScreen from '../../../screen/app/Map';
 
 const Button = createAppContainer(
@@ -13,6 +14,7 @@ const Button = createAppContainer(
                 screen: SnapsBoxScreen,
                 navigationOptions: {
                     title: 'Map',
+                    ...Style,
                 }
             },
         }

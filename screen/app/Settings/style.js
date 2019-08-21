@@ -5,14 +5,16 @@ import Color from '../../../styles/Color';
 
 const styles = StyleSheet.create({
   container: {
-      flex: 5,
+      flex: 1,
       width: "100%",
-      backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+      backgroundColor: Color.lightGrey,
   },
 
- logoutBtn: {
+  logoutBtn: {
+    paddingTop: 50,
+    width: '100%',
     flex: 1,
   },
 });

@@ -1,1 +1,1 @@
-export default "https://locatemeapi.herokuapp.com/";
+export default "https://locatemeapi.herokuapp.com";

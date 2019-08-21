@@ -2,7 +2,7 @@
 import Color from './Color';
 
 const lightTheme = {
-    active: Color.lightBlue,
+    active: Color.darkOrange,
     inactive: Color.grey,
     backgroundColor: Color.white,
     borderColor: Color.lightGrey,
