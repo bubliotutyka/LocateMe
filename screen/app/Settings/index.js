@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View
 } from 'react-native';
-import {SecureStore} from 'expo';
+import * as SecureStore from 'expo-secure-store';
 
 // Local Import
 import S from './style';

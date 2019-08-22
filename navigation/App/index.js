@@ -24,9 +24,9 @@ const AppNavigator = createAppContainer(
                 const { routeName } = navigation.state;
                 let iconName;
                 if (routeName === 'Button1') {
-                    iconName = 'image';
+                    iconName = 'map';
                 } else if (routeName === 'Button2') {
-                    iconName = 'camera-retro';
+                    iconName = 'comments';
                 } else if (routeName === 'Button3') {
                     iconName = `cogs`;
                 }

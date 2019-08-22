@@ -1,6 +1,8 @@
 import React from 'react';
-import {View, ScrollView} from 'react-native';
-// import {SecureStore} from 'expo';
+import {
+  View,
+  ScrollView
+} from 'react-native';
 
 // Local Import
 import S from './style';

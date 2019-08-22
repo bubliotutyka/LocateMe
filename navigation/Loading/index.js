@@ -1,5 +1,5 @@
 import React from 'react';
-import {SecureStore} from 'expo';
+import * as SecureStore from 'expo-secure-store';
 
 // Local Import
 import LoadingScreen from '../../components/Loading';

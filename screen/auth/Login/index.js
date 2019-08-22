@@ -4,7 +4,6 @@ import {
   ScrollView,
   Image,
 } from 'react-native';
-import {SecureStore} from 'expo';
 // import Geolocation from 'react-native-geolocation-service';
 
 // Local Import
@@ -35,27 +34,24 @@ class LoginScreen extends React.Component {
       }
 
       const pos = await GeolocationService.getPos();
-
+      console.log('====================================');
+      console.log(pos);
+      console.log('====================================');
       if (pos) {
-        const user = await GeolocationService.login({
-          phoneNumber: `+33${phone}`,
-          lat: pos.lat,
-          lng: pos.lng,
-        });
+        // const user = await GeolocationService.login({
+        //   phoneNumber: `+33${phone}`,
+        //   lat: pos.lat,
+        //   lng: pos.lng,
+        // });
 
-        if (user._id) {
-          await SecureStore.setItemAsync('eToken', user._id);
-          this.props.navigation.navigate("App");
-        }
+        // if (user._id) {
+        //   await SecureStore.setItemAsync('eToken', user._id);
+        //   this.props.navigation.navigate("App");
+        // }
       }
-    } else if (!authorization) {
-      this.setState({
-        phoneError: "Geolocation needed",
-        isLoading: false,
-      });
     } else {
       this.setState({
-        phoneError: "Please enter valid number",
+        phoneError: "Please enter valid number (0642424242)",
         isLoading: false,
       });
     }
@@ -67,6 +63,10 @@ class LoginScreen extends React.Component {
 
   render() {
     const {phone, phoneError, isLoading} = this.state;
+    let maxLength = 10;
+
+    if (phone[0] !== "0")
+      maxLength = 9;
 
     if (isLoading) {
       return (
@@ -97,6 +97,7 @@ class LoginScreen extends React.Component {
               keyboardType="numeric"
               value={phone}
               error={phoneError}
+              maxLength={maxLength}
             />
 
             <Button
