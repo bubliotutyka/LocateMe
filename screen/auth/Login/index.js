@@ -4,7 +4,7 @@ import {
   ScrollView,
   Image,
 } from 'react-native';
-// import Geolocation from 'react-native-geolocation-service';
+import * as SecureStore from 'expo-secure-store';
 
 // Local Import
 import S from './style';
@@ -34,20 +34,18 @@ class LoginScreen extends React.Component {
       }
 
       const pos = await GeolocationService.getPos();
-      console.log('====================================');
-      console.log(pos);
-      console.log('====================================');
-      if (pos) {
-        // const user = await GeolocationService.login({
-        //   phoneNumber: `+33${phone}`,
-        //   lat: pos.lat,
-        //   lng: pos.lng,
-        // });
 
-        // if (user._id) {
-        //   await SecureStore.setItemAsync('eToken', user._id);
-        //   this.props.navigation.navigate("App");
-        // }
+      if (pos) {
+        const user = await GeolocationService.login({
+          phoneNumber: `+33${phone}`,
+          lat: pos.latitude,
+          lng: pos.longitude,
+        });
+
+        if (user._id) {
+          await SecureStore.setItemAsync('eToken', user._id);
+          this.props.navigation.navigate("App");
+        }
       }
     } else {
       this.setState({
