@@ -16,8 +16,8 @@ import Button from '../../../components/Button';
 
 class LoginScreen extends React.Component {
   state = {
-    phone: "642129037",
-    phoneError: "",
+    phone: "",
+    error: "",
     isLoading: false,
   }
 
@@ -27,29 +27,38 @@ class LoginScreen extends React.Component {
     let {phone} = this.state;
 
     if (phone.match(REGEX9) || phone.match(REGEX10)) {
-      this.setState({isLoading: true});
-
+      await this.setState({isLoading: true});
+      const location = await GeolocationService.getPos();
+      
       if (phone.match(REGEX10)) {
         phone = phone.substring(1);
       }
 
-      const pos = await GeolocationService.getPos();
-
-      if (pos) {
+      if (location.error) {
+        this.setState({
+          error: location.error,
+          isLoading: false,
+        });
+      } else {
         const user = await GeolocationService.login({
           phoneNumber: `+33${phone}`,
-          lat: pos.latitude,
-          lng: pos.longitude,
+          lat: location.latitude,
+          lng: location.longitude,
         });
 
         if (user._id) {
           await SecureStore.setItemAsync('eToken', user._id);
-          this.props.navigation.navigate("App");
+          this.props.navigation.navigate("AuthLoading");
+        } else {
+          this.setState({
+            error: "Connection failed",
+            isLoading: false,
+          });
         }
       }
     } else {
       this.setState({
-        phoneError: "Please enter valid number (0642424242)",
+        error: "Please enter valid number (0642424242)",
         isLoading: false,
       });
     }
@@ -60,7 +69,7 @@ class LoginScreen extends React.Component {
   }
 
   render() {
-    const {phone, phoneError, isLoading} = this.state;
+    const {phone, error, isLoading} = this.state;
     let maxLength = 10;
 
     if (phone[0] !== "0")
@@ -94,7 +103,7 @@ class LoginScreen extends React.Component {
               onChangeText={(text) => this.handleChange(text, "phone")}
               keyboardType="numeric"
               value={phone}
-              error={phoneError}
+              error={error}
               maxLength={maxLength}
             />
 

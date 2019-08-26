@@ -3,7 +3,7 @@ import Color from '../../../styles/Color';
 
 const styles = {
   headerTintColor: Color.darkGrey,
-  headerTransparent: false,
+  // headerTransparent: false,
   headerStyle: {
     backgroundColor: Color.lightGrey,
     ...Color.shadow,

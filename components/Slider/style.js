@@ -6,6 +6,7 @@ import Color from '../../styles/Color';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -13,16 +14,16 @@ const styles = StyleSheet.create({
 
   slider: {
     height: '10%',
-    width: '70%',
+    width: '65%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Color.lightGrey,
   },
 
   text: {
+    width: '15%',
     marginLeft: 10,
     fontSize: 14,
-    color: Color.darkGrey,
+    color: Color.darkOrange,
   },
 });
 

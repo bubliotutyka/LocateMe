@@ -15,7 +15,7 @@ class Button extends React.Component {
         minimumTrackTintColor, maximumTrackTintColor, value, thumbTintColor,
       } = this.props;
 
-      const distance = value === 0 ? 'All' : `${value} kn`
+      const distance = value === 0 ? 'All' : `${value / 1000} km`
 
       return (
         <View style={S.container}>

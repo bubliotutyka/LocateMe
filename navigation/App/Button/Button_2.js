@@ -5,15 +5,15 @@ import {
 
 // Local Import
 import Style from './style';
-import LoadingScreen from '../../../components/Loading';
+import ContactScreen from '../../../screen/app/Contact';
 
 const Button =  createAppContainer(
     createStackNavigator(
         {
             Example: {
-                screen: LoadingScreen,
+                screen: ContactScreen,
                 navigationOptions: {
-                    title: 'Example',
+                    title: 'Contact',
                     ...Style,
                 }
             },
