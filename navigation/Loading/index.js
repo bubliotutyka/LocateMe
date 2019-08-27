@@ -28,8 +28,10 @@ class Loading extends React.Component {
       if (userConnect._id) isLogin = true;
     }
     
+    const d = new Date();
+    const date = `${d.getHours()}h:${d.getMinutes()}m:${d.getSeconds()}s`;
     console.log('====================================');
-    console.log(`User connect on "${Platform.OS}"`);
+    console.log(`User connect on "${Platform.OS}" at ${date}`);
     console.log('eToken:', eToken);
     console.log(`Status: ${isLogin ? 'connect' : 'disconnect'}`);
     console.log('====================================');

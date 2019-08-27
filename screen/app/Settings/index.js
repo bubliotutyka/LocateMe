@@ -8,6 +8,7 @@ import * as SecureStore from 'expo-secure-store';
 import S from './style';
 import GeolocationService from '../../../service/GeolocationService';
 import Button from '../../../components/Button';
+import {randomiseUser, generateUser, clearUser} from '../../../service/Debug';
 
 class SettingScreen extends React.Component {
   handleLogout = async () => {
@@ -25,10 +26,37 @@ class SettingScreen extends React.Component {
       <View style={S.container}>
 
         <View style={S.logoutBtn}>
+
           <Button
             label="Logout"
             onPress={this.handleLogout}
           />
+
+          <Button
+            label="Randomize"
+            onPress={() => randomiseUser()}
+          />
+
+          <Button
+            label="Clear"
+            onPress={() => clearUser()}
+          />
+
+          <Button
+            label="+1 user"
+            onPress={() => generateUser(1)}
+          />
+
+          <Button
+            label="+10 users"
+            onPress={() => generateUser(10)}
+          />
+
+          <Button
+            label="+50 users"
+            onPress={() => generateUser(50)}
+          />
+
         </View>
 
       </View>

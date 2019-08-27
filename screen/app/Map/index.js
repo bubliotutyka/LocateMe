@@ -76,28 +76,14 @@ class MapScreen extends React.Component {
     if (user._id === userId) 
       pinColor = Color.darkOrange;
 
-    const minusLat = Math.random();
-    const minusLng = Math.random();
-    let latRand = 0;
-    let lngRand = 0;
-
-    // if (user._id !== userId) {
-    //   latRand = Math.random() * 0.1;
-    //   lngRand = Math.random() * 0.1;
-  
-    //   if (minusLat < 0.5)
-    //     latRand = latRand * -1;
-    //   if (minusLng < 0.5)
-    //     lngRand = lngRand * -1;
-    // }
-
     return (
       <Marker 
         key={user._id}
         coordinate={{ 
-          latitude: user.lat + latRand,
-          longitude: user.lng + lngRand, 
+          latitude: user.lat,
+          longitude: user.lng, 
         }}
+        title={user.phoneNumber}
       >
         <CustomIcons name="street-view" size={30} color={pinColor} />
       </Marker>

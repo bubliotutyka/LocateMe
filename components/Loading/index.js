@@ -11,7 +11,7 @@ import Color from '../../styles/Color';
 const S = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Color.lightGrey,
+        // backgroundColor: Color.lightGrey,
         alignItems: 'center',
         justifyContent: 'center',
     },

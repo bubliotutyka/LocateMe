@@ -5,26 +5,30 @@ import Color from '../../../styles/Color';
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      // backgroundColor: Color.lightGrey,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
-  map: {
-    ...StyleSheet.absoluteFillObject,
-  },
-
-  mapContainer: {
+  selectAll: {
     width: '100%',
-    height: '90%',
+    height: '8%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderStyle: 'solid',
+    borderBottomWidth: 1,
+    borderColor: Color.darkOrange,
     ...Color.shadow,
   },
 
-  slider: {
+  userContainer: {
     width: '100%',
-    height: '10%',
-    backgroundColor: Color.darkGrey,
+    height: '84%',
+  },
+
+  send: {
+    width: '100%',
+    height: '8%',
   },
 });
 

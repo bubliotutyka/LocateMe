@@ -1,21 +1,24 @@
 import React from 'react';
 import {
   View,
-  Text,
 } from 'react-native';
 
 // Local Import
 import S from './style';
+import Checkbox from '../../components/CheckBox';
 
 class ContactCard extends React.Component {
   render() {
-    const {_id} = this.props.user
-
+    const {onPress} = this.props;
+    const {phoneNumber, checked} = this.props.user
+    
     return(
       <View style={S.container}>
-
-        <Text>{_id}</Text>
-
+        <Checkbox 
+            label={phoneNumber}
+            checked={checked}
+            onPress={onPress}
+        />
       </View>
     )
   }

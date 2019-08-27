@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: 'center',
     height: 50,
+    borderStyle: 'solid',
+    borderBottomWidth: 1,
+    borderColor: Color.grey,
   },
 });
 

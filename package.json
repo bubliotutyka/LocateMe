@@ -13,6 +13,7 @@
     "expo-location": "^5.0.1",
     "expo-permissions": "^5.0.1",
     "expo-secure-store": "^5.0.1",
+    "expo-sms": "^5.0.1",
     "geolib": "^3.0.4",
     "install": "^0.13.0",
     "npm": "^6.11.1",

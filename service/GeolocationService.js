@@ -98,19 +98,25 @@ class GeolocationService {
       const me = users.filter((user) => user._id === eToken)[0];
       const inArea = [];
       
-      for (let i = 0; i < users.length; i++) {
-        const isIn = await Geolib.isPointWithinRadius({
-          latitude: users[i].lat,
-          longitude: users[i].lng,
-        }, {
-          latitude: me.lat,
-          longitude: me.lng,
-        }, distance);
-        
-        if (isIn && users[i]._is !== me) inArea.push(users[i]);
+      if (distance !== 0) {
+        for (let i = 0; i < users.length; i++) {
+          const isIn = await Geolib.isPointWithinRadius({
+            latitude: users[i].lat,
+            longitude: users[i].lng,
+          }, {
+            latitude: me.lat,
+            longitude: me.lng,
+          }, distance);
+          
+          if (isIn && users[i]._id !== eToken) {
+            users[i].checked = false;
+            inArea.push(users[i]);
+          }
+        }
+        resolve(inArea);
+      } else {
+        resolve(users);
       }
-
-      resolve(inArea);
     });
   }
 }
