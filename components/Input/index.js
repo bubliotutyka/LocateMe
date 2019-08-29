@@ -65,12 +65,12 @@ class Input extends React.Component {
         <View style={S.container}>
           {label && this.getLabel()}
           <View style={S.inputContainer}>
-            <Text style={S.text}>+33 </Text>
+            { keyboardType === 'numeric' && <Text style={S.text}>+33 </Text>}
             <TextInput 
               style={S.input}
               placeholder={placeholder}
               secureTextEntry={secureTextEntry || false}
-              // editable={editable || false}
+              editable={editable}
               maxLength={maxLength || 999999}
               onChangeText={onChangeText}
               keyboardType={keyboardType || "default"}

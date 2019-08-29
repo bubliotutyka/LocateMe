@@ -81,3 +81,14 @@ export const clearUser = async () => {
       GeolocationService.logout(users[i]._id);
   }
 }
+
+export const logoutJade = async() => {
+  const users = await GeolocationService.getAll();
+
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].phoneNumber === "0612345678") {
+      await GeolocationService.logout(users[i]._id);
+      return;
+    }
+  }
+}

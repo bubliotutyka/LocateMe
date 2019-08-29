@@ -84,6 +84,7 @@ class MapScreen extends React.Component {
           longitude: user.lng, 
         }}
         title={user.phoneNumber}
+        onPress={()=> this.props.navigation.navigate("AddContact", {...user})}
       >
         <CustomIcons name="street-view" size={30} color={pinColor} />
       </Marker>

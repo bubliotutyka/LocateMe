@@ -51,7 +51,7 @@ class LoginScreen extends React.Component {
           this.props.navigation.navigate("AuthLoading");
         } else {
           this.setState({
-            error: "Connection failed",
+            error: "Phone number already in use",
             isLoading: false,
           });
         }
