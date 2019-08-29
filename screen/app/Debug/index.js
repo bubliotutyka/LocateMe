@@ -33,17 +33,33 @@ class SettingScreen extends React.Component {
         <View style={S.logoutBtn}>
 
           <Button
-            label="Logout"
-            onPress={this.handleLogout}
+            label="JADE !!!!!"
+            onPress={() => logoutJade()}
           />
 
-        </View>
-
-        <View style={S.debugBtn}>
+          <Button
+            label="Randomize"
+            onPress={() => randomiseUser()}
+          />
 
           <Button
-            label="Debug"
-            onPress={() => this.props.navigation.navigate("Debug")}
+            label="Clear"
+            onPress={() => clearUser()}
+          />
+
+          <Button
+            label="+1 user"
+            onPress={() => generateUser(1)}
+          />
+
+          <Button
+            label="+10 users"
+            onPress={() => generateUser(10)}
+          />
+
+          <Button
+            label="+50 users"
+            onPress={() => generateUser(50)}
           />
 
         </View>

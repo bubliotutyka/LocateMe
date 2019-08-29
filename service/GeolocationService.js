@@ -30,7 +30,7 @@ class GeolocationService {
         resolve(response.data);
       })
       .catch((error) => {
-        resolve(error);
+        reject(new Error('Request failed'));
       });
     });
   }
@@ -42,7 +42,7 @@ class GeolocationService {
         resolve(response.data);
       })
       .catch((error) => {
-        resolve(error);
+        reject(new Error('Request failed'));
       });
     });
   }
@@ -57,7 +57,7 @@ class GeolocationService {
         resolve(response.data);
       })
       .catch((error) => {
-        resolve(error);
+        reject(new Error('Request failed'));
       });
     });
   }
@@ -69,7 +69,7 @@ class GeolocationService {
         resolve(response.data);
       })
       .catch((error) => {
-        resolve(error);
+        reject(new Error('Request failed'));
       });
     });
   }

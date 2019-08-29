@@ -3,6 +3,7 @@ import {
   View,
   Text,
   Platform,
+  AppState,
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker, Circle } from 'react-native-maps';
 import CustomIcons from 'react-native-vector-icons/FontAwesome';
@@ -40,6 +41,8 @@ class MapScreen extends React.Component {
     const location = await GeolocationService.getPos();
     const users = await GeolocationService.getAll();
 
+    AppState.addEventListener('change', this.handleAppStateChange);
+
     GeolocationService.setDistance(sliderValue);
 
     if (location.error) {
@@ -66,7 +69,7 @@ class MapScreen extends React.Component {
 
   componentWillUnmount = () => {
     this.stopUpdateMap();
-    console.log('Map unmount');
+    AppState.removeEventListener('change', this.handleAppStateChange);
   }
 
   getMarker = (user) => {
@@ -94,30 +97,37 @@ class MapScreen extends React.Component {
   updateMap = async () => {
     const {userId} = this.state;
 
-    this.location = setInterval(async ()=>{
-      const location = await GeolocationService.getPos();
-
-      await GeolocationService.update({
-        id: userId,
-        lat: location.latitude,
-        lng: location.longitude,
-      });
-
-      const users = await GeolocationService.getAll();
-
-      // console.log('========================================');
-      // const d = new Date();
-      // console.log(`${d.getHours()}h:${d.getMinutes()}m:${d.getSeconds()}s ${d.getMilliseconds()}ms   Map update on "${Platform.OS}"`);
-      // console.log('========================================');
-
-      this.setState({
-        users,
-        userPos: {
+    try {
+      this.location = setInterval(async ()=>{
+        const location = await GeolocationService.getPos();
+  
+        await GeolocationService.update({
+          id: userId,
           lat: location.latitude,
           lng: location.longitude,
-        },
-      });
-    }, 10000);
+        });
+  
+        const users = await GeolocationService.getAll();
+  
+        // console.log('========================================');
+        // const d = new Date();
+        // console.log(`${d.getHours()}h:${d.getMinutes()}m:${d.getSeconds()}s ${d.getMilliseconds()}ms   Map update on "${Platform.OS}"`);
+        // console.log('========================================');
+  
+        this.setState({
+          users,
+          userPos: {
+            lat: location.latitude,
+            lng: location.longitude,
+          },
+        });
+      }, 10000);
+    } catch (error) {
+      const id = await SecureStore.getItemAsync('eToken');
+      GeolocationService.logout(id);
+      await SecureStore.setItemAsync('eToken', '');
+      this.props.navigation.navigate("AuthLoading");
+    }
   }
 
   stopUpdateMap = async () => {
@@ -127,6 +137,14 @@ class MapScreen extends React.Component {
   handleSliderChange = (sliderValue) => {
     GeolocationService.setDistance(sliderValue);
     this.setState({sliderValue});
+  }
+
+  handleAppStateChange = (nextAppState) => {
+    if (nextAppState.match(/inactive|background/)) {
+      this.stopUpdateMap();
+    } else if (nextAppState === 'active') {
+      this.updateMap();
+    }
   }
 
   onRegionChange = (region) => {
