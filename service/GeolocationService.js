@@ -57,7 +57,7 @@ class GeolocationService {
         resolve(response.data);
       })
       .catch((error) => {
-        reject(new Error('Request failed'));
+        resolve(error);
       });
     });
   }

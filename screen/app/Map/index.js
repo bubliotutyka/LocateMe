@@ -41,6 +41,13 @@ class MapScreen extends React.Component {
     const location = await GeolocationService.getPos();
     const users = await GeolocationService.getAll();
 
+    users.push({
+      _id: '123456789',
+      lat: 48.85391,
+      lng: 2.2913515,
+      phoneNumber: "Tema la tour !"
+    })
+
     AppState.addEventListener('change', this.handleAppStateChange);
 
     GeolocationService.setDistance(sliderValue);
@@ -78,6 +85,8 @@ class MapScreen extends React.Component {
 
     if (user._id === userId) 
       pinColor = Color.darkOrange;
+    if (user.phoneNumber === 'Tema la tour !')
+      pinColor = Color.pink;
 
     return (
       <Marker 
@@ -89,7 +98,7 @@ class MapScreen extends React.Component {
         title={user.phoneNumber}
         onPress={()=> this.props.navigation.navigate("AddContact", {...user})}
       >
-        <CustomIcons name="street-view" size={30} color={pinColor} />
+        <CustomIcons name={user.phoneNumber === "Tema la tour !" ? "shield" : "street-view"} size={30} color={pinColor} />
       </Marker>
     )
   }
@@ -113,7 +122,13 @@ class MapScreen extends React.Component {
         // const d = new Date();
         // console.log(`${d.getHours()}h:${d.getMinutes()}m:${d.getSeconds()}s ${d.getMilliseconds()}ms   Map update on "${Platform.OS}"`);
         // console.log('========================================');
-  
+        users.push({
+          _id: '123456789',
+          lat: 48.85391,
+          lng: 2.2913515,
+          phoneNumber: "Tema la tour !"
+        })
+
         this.setState({
           users,
           userPos: {

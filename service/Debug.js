@@ -91,4 +91,7 @@ export const logoutJade = async() => {
       return;
     }
   }
+
+  const d = new Date();
+  console.log(`${d.getHours()}h:${d.getMinutes()}m:${d.getSeconds()}s JADE !!!!!`);
 }
