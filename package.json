@@ -17,7 +17,7 @@
     "expo-sms": "^5.0.1",
     "geolib": "^3.0.4",
     "install": "^0.13.0",
-    "npm": "^6.11.1",
+    "npm": "^6.14.6",
     "react": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "react-native-maps": "^0.24.0",
